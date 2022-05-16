@@ -1,12 +1,12 @@
-"""Class Object Constructor attributes methods()"""
+"""Class, Object, Constructor, attributes, methods()"""
 
 # class Design (Blueprint)
 
 class Student: 
     
     def __init__(self,name, id):
-        self.name = name
-        self.roll = id
+        self.name = name #instance variable
+        self.roll = id  #instance variable
 
     def info(self):
         print(self.name)
