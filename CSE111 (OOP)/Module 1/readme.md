@@ -1,6 +1,6 @@
 # Module 1 
 Module 1 contains : 
-**Lecture 1-10**
+**Lecture 1-11**
 
 ## L1
 
@@ -24,10 +24,11 @@ self = unique memory address or location of individual obejct.
 
 
 ## L4
+
 > parameterized constructor | Instance variable
 
 
-> Waht is instance and attribute in Python?  
+> What is instance and attribute in Python?  
 
 An instance attribute is a Python variable belonging to one, and only one, object. This variable is only accessible in the scope of this object and it is defined inside the constructor function, __init__(self,..) of the class.  
 so, basically instance variable and attributes are similar.
@@ -58,6 +59,7 @@ print(stu1.name)
 
 We can update instance variable even after creating object by using object reference. 
 For example, if we want to change the name of stu1 object, we can do the below:
+
 ```py
 #....
 stu1.name = 'Faysel'
@@ -75,9 +77,11 @@ Summary: We've learnt so far-
 
 
 ## L5
+
 > In depth session | Revision of prev lectures
 
-**Method**
+**Method**  
+
 Method is nothing but a function. When a function is used inside the class, that is called method. 
 
 There is only a single difference between method and function is that, a method will automatically take 'self' while a function will not. 
@@ -87,7 +91,6 @@ There are three types of methods in Python: instance methods, static methods, an
 **For now, let's focus on Instance method:**
 
 ```py
-
 # class Design (Blueprint)
 
 class Student: 
@@ -181,7 +184,7 @@ print(book1.get_price)
 ```
 <br>
 
-### Importing a Class :
+**Importing a Class :**
 <br>    
 
 > To use a class in another program, we can import the class to that python file. There are some ways discussed in the details code. check code5_book.py, code6_test1.py  
@@ -250,5 +253,106 @@ With that being said, lecture 9 ended here.
 <br>
 
 
-# L10
+## L10
 > Pass by reference
+
+we pass an argument by the reference, (not the actual value)
+
+```py
+# cat class, pass by reference example
+
+class Cat:
+    def __init__(self, color, action):
+        self.color =color
+        self.action = action
+    
+    def view(self):
+        print(f"{self.color} cat is {self.action}")
+
+    #pass by reference
+    def compare(self, anotherCat):
+        if self.action == anotherCat.action:
+            print(f"Both {self.color} and {anotherCat.color} cats are {self.action}")
+        else:
+            print(f"Action of {self.color} and {anotherCat.color} cats are different")
+
+
+#=============================================
+
+cat1 = Cat("Brown","Jumping")
+
+cat2 = Cat("Black", "Running")
+
+cat3 = Cat("White","Jumping")
+
+cat1.view()
+
+cat1.compare(cat2)
+cat1.compare(cat3)
+
+# in the compare method, we pass the argument by reference of another object. 
+
+# we did not pass the actual object,
+#  rater passed the reference or location of that object 
+# so that the compare method can access that object and its attributes
+```
+
+
+## L11
+<br>
+
+> pass by reference example code
+
+> More discussion on pass by value, pass by reference. **Important**
+
+
+```py
+class Cat:
+
+    def __init__(self,color, action):
+        self.color = color
+        self.action = action
+    
+    # understanding pass by value and reference
+    def view(self, num, clr):
+        num = num + 10
+        clr1 = clr
+        clr1[0] = 'Green'
+
+        print(f"Inside Method: clr1 = {clr1}")
+        print(f"Inside Method: clr = {clr}")
+        print(f"Inside Method num = {num}")
+
+#=======================
+
+c1 = Cat("Red","Jumping")
+x = 50
+colors = ['Black', 'Red', 'White']
+
+#inside method
+c1.view(x,colors)
+
+#outside method
+print(f"outside method: colors = {colors}")
+print(f"outside method: num = {x}")
+
+```
+
+Notice that, the value of x is not changed even after the method called.
+but the value of the list colors is changed.
+
+Because, inside the method, num was passed by the value of x = 50, 
+not the reference or location of x. 
+
+On the other hand, clr was passed by the reference of the list colors. 
+As the reference was passed, any changes made to the reference,
+will eventually change  the actual variable. 
+That's why the list colors is changed even outside the method but not the variable x.
+
+understanding pass by value and pass by reference is really important.
+
+
+With that being said, lecture 11 is done and module 1 is done.
+
+
+
