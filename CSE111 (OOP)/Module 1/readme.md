@@ -1,6 +1,6 @@
 # Module 1 
 Module 1 contains : 
-**Lecture 1,2,3,4,5,6,7**
+**Lecture 1-10**
 
 ## L1
 
@@ -145,5 +145,109 @@ print(dir(objectName))
 
 With that being said, done with lecture 8.
 
+<br>
 
 
+## L9  
+  
+
+> Import Class   
+Example program - 5 : Designing a book class  
+Getter , setter method
+
+
+introdued with getter setter method. (know more from internet and upcoming lectures)  
+
+Set Method
+: Set method will <mark>update</mark> the variable or data.
+
+Get Method
+: Get method will <mark> return </mark>       the data to user which is updated by set method
+
+get & set method comes in pair:  
+(check full code on code5_book.py)
+
+```py
+def set_price(self,pricce):
+    self.price = price
+
+def get_price(self):
+    return self.price
+
+# we can access these methods like: 
+#object_ame.set_price(argument)
+book1.set_price(200)
+print(book1.get_price)
+```
+<br>
+
+### Importing a Class :
+<br>    
+
+> To use a class in another program, we can import the class to that python file. There are some ways discussed in the details code. check code5_book.py, code6_test1.py  
+
+<br>  
+
+
+```py
+# Designing a book class / Design class
+
+class Book:
+    def __init__(self, name, author):
+        self.name = name
+        self.author = author
+        self.price = 0
+    # setter method
+    def set_price(self,price):
+        self.price = price
+
+    # getter method
+    def get_price(self):
+        return self.price
+
+    
+    def details(self):
+        print(f"Name of the Book : {self.name} \nAuthor: {self.author} \nPrice : {self.price}$")
+
+#====================================
+```
+
+
+To import this class from a file let's say code5_book.py to another file code6_test1.py (in the same directory)
+
+<mark>way 1: We can import the full python file which contains the Book class
+
+```py
+import code5_book
+
+# to access the class inside the code5_book file,
+# we need to reference it by the file_name
+
+book1 = code5_book.Book("Opekkha", "Humayon Ahmed")
+
+```
+
+<mark>way 2: we can import only the class by using :
+
+```py
+from code5_book import Book
+book2 = Book("Something Big", "Syed Rajo")
+
+# to access the class inside the code5_book file,
+# in that case we don't need to reference it by the file_name since we've imported the actual class Book
+
+```
+
+Know more about aliasing :
+
+```py
+import Book as b
+# as b is used for aliasing, now Book can be accessed by typing b 
+```
+
+With that being said, lecture 9 ended here.
+
+<br>
+
+
+# L10
