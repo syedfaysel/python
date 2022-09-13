@@ -43,3 +43,11 @@ That's why the list colors is changed even outside the method but not the variab
 understanding pass by value and pass by reference is really important.
 """
 
+
+rajo = dict()
+saifa = {"Name":"Saifa Tasnim", "ID":12425, "Gender":"female", "Dept": "CSE", "favs":["mahir","nipu", "rajo"]}
+
+print(saifa)
+
+
+print(saifa["favs"][2])
